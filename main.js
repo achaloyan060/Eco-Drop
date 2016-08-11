@@ -167,7 +167,7 @@ var GameState = {
 	preload:function(){
 
 		//backgrounds
-		this.load.image('background', 'assets/images/back.png');
+		this.load.image('background', 'assets/images/background.png');
 		this.load.image('beach', 'assets/images/beach.png');
 		this.load.image('mall', 'assets/images/mall.png');
 		this.load.image('hallway', 'assets/images/hallway.png');
@@ -254,9 +254,9 @@ var GameState = {
 
 
 		//fonts
-		this.game.load.script('Bungee Inline', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
-		this.game.load.script('Exo', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
-		this.game.load.script('Dosis', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
+		this.game.load.script('Bungee Inline', 'https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
+		this.game.load.script('Exo', 'https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
+		this.game.load.script('Dosis', 'https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
 
 		this.game.scale.pageAlignHorizontally = true;this.game.scale.pageAlignVertically = true;this.game.scale.refresh();
 
@@ -268,7 +268,7 @@ var GameState = {
 
 		this.oldmed = ['Medicine'];
 		this.paper = ['Paper', 'Mail', 'Newspaper', 'Phonebook', 'Cereal', 'Cardboard Box','Book'];
-		this.electronic = ['Camera', 'Microwave', 'Computer', 'Battery', 'Powercord', 'Clock', 'TV', 'Cell Phone'];
+		this.electronic = ['Camera', 'Microwave', 'Computer', 'Battery', 'Powercord', 'Clock', 'TV', 'Cell Phone', 'Stereo', 'MP3'];
 		this.alum = ['Key', 'Metal Lid'];
 		this.ground = [];
 		this.wrong = [];
@@ -363,7 +363,7 @@ var GameState = {
 		this.tryAgain.destroy();
 		this.missedItems.destroy();
 		this.title = game.add.text(300, 30, 'Why was I wrong?', {fontSize: '50px', fill: '#ffffff'});
-		if (this.wrong.length>2)
+		if (this.wrong.length == 3)
 		{
 			this.reason1 = doesntMatter(this.wrong[0], this.compost_list, this.recycle_list, this.electronic, this.trash_list, this.alum);
 			this.reason2 = doesntMatter(this.wrong[1], this.compost_list, this.recycle_list, this.electronic, this.trash_list, this.alum);
@@ -372,12 +372,12 @@ var GameState = {
 			this.wrong2 = game.add.text(16, 350,'2. '+this.wrong[1]+ ': '+this.reason2, {fontSize: '32px', fill: '#ffffff'});
 			this.wrong3 = game.add.text(16, 550, '3. '+this.wrong[2]+ ': '+this.reason3, {fontSize: '32px', fill: '#ffffff'});
 		}
-		else if (this.wrong.length>1)
+		else if (this.wrong.length == 2)
 		{
 			this.reason1 = doesntMatter(this.wrong[0], this.compost_list, this.recycle_list, this.electronic, this.trash_list, this.alum);
 			this.reason2 = doesntMatter(this.wrong[1], this.compost_list, this.recycle_list, this.electronic, this.trash_list, this.alum);
 			this.wrong1 = game.add.text(16, 125, '1. '+this.wrong[0]+ ': '+this.reason1, {fontSize: '32px', fill: '#ffffff'});
-			this.wrong2 = game.add.text(16, 160, '2. '+this.wrong[1]+ ': '+this.reason2, {fontSize: '32px', fill: '#ffffff'});
+			this.wrong2 = game.add.text(16, 350, '2. '+this.wrong[1]+ ': '+this.reason2, {fontSize: '32px', fill: '#ffffff'});
 		}
 		else if (this.wrong.length == 1)
 		{
