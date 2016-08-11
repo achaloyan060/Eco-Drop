@@ -167,7 +167,7 @@ var GameState = {
 	preload:function(){
 
 		//backgrounds
-		this.load.image('background', 'assets/images/background.png');
+		this.load.image('background', 'assets/images/back.png');
 		this.load.image('beach', 'assets/images/beach.png');
 		this.load.image('mall', 'assets/images/mall.png');
 		this.load.image('hallway', 'assets/images/hallway.png');
